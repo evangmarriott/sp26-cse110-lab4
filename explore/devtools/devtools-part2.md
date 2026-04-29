@@ -1,5 +1,11 @@
 # DevTools Part 2 - Debugging
 
+## Screenshot 1 - Breakpoint at `result` in `calculateSum()`
+![Breakpoint at result](../../expand/screenshots/result-calculateSum.png)
+
+## Screenshot 2 - Watch Expressions for `num1`, `num2`, and `typeof result`
+![Watch expressions](../../expand/screenshots/result-dataType.png)
+
 ## What was the bug?
 The bug was in the `calculateSum()` function in `explore.js`. On line 9, `num1` and `num2` are obtained from `document.getElementById().value`, which always returns a string. So when the code does `let result = num1 + num2`, JavaScript uses string concatenation instead of numeric addition. For example, inputting 2 and 3 gives `"23"` instead of `5`. This was confirmed using the debugger — the Watch panel showed `typeof result: "string"` and the Scope panel showed `result: "23"`.
 
@@ -13,3 +19,5 @@ To:
 `let result = Number(num1) + Number(num2);`
 
 This forces numeric addition instead of string concatenation.
+
+![Fix screenshot](../../expand/screenshots/fix.png)
